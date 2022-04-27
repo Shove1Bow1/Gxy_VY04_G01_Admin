@@ -1,0 +1,15 @@
+.TopNav{
+    height: 15%;
+    width: 100%;
+    background-color: white;
+    border-bottom: 5px solid black;
+}
+.sideNav{
+    position: fixed;
+    height: 100%;
+    width: 12%;
+    background-color: rgb(24, 180, 241);
+}
+.HomePage{
+    height: 100%;
+}
