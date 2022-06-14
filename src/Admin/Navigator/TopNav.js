@@ -1,10 +1,13 @@
 import React from "react";
 import "./nav.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 const TopNav=()=>{
+    const navigate=useNavigate();
+    const [getCookies,setCookies,deleteCookies]=useCookies();
     function Logout(){
-        axios.get('http://localhost:8020/Admin/Logout').then((res)=>{console.log(res);});
+        deleteCookies('Admin');
     }
     return (
         <div className="TopNav container-fluid">
@@ -13,9 +16,9 @@ const TopNav=()=>{
                     <h5>Admin</h5>
                 </div>
                 <div className="col-sm" style={{ textAlign: "end", textDecoration:"inherit"}}>
-                    <Link to="/Admin" onClick={TopNav} style={{textDecoration:"none"}}>
+                    <a href="/Login" onClick={()=>Logout()} style={{textDecoration:"none"}}>
                         <h5><span><i className="fa fa-power-off" aria-hidden="true"></i> Log out</span></h5>
-                    </Link>
+                    </a>
                 </div>
             </div>
         </div>

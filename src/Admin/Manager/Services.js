@@ -47,7 +47,7 @@ class Services extends React.Component{
                                      <td>{item.MIN_PRICE}</td>
                                      <td>{item.MAX_PRICE}</td>
                                      <td>{item.POINT_EXCHANGE_RANGE}</td>
-                                     <td><Link to={`/Admin/Services/${item.APP_ID}/EditService`} state={id=item.APP_ID}><button>Edit</button></Link></td>
+                                     <td><Link to={`/Services/${item.APP_ID}/EditService`} state={id=item.APP_ID}><button>Edit</button></Link></td>
                                  </tr>
                              )
                          })}

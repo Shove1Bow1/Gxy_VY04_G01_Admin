@@ -8,12 +8,13 @@ import TopNav from "./Navigator/TopNav";
 
 import "./Navigator/nav.css"
 import EditService from "./Manager/EditService";
+import ChangePassword from "./Manager/ChangePassword";
 const Homepage=()=>{
     var EditLink;
     const location=useLocation();
     async function StayLogin(){
         const res=await fetch("http://localhost:8020/Admin/Login");
-        const data=res.json();                      
+        const data=res.json();                     
         return data;
     }
     if(location.state===null){
@@ -40,6 +41,7 @@ const Homepage=()=>{
                             <Route path="/Rules" element={<Rules />} />
                             <Route path="/Services" element={<Services />} />
                             <Route path={EditLink} element={<EditService/>}/>
+                            <Route path="/changePassword" element={<ChangePassword/>}/>
                         </Routes>
                     </div>
                 </div>

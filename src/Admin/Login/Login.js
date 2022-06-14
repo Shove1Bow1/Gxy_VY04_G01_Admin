@@ -1,19 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, Route,Routes } from "react-router-dom";
+import { Link, Route,Routes, useNavigate } from "react-router-dom";
 import Login from "../img/DangNhap.png"
-const LoginPage = () => { 
+import {useCookies} from 'react-cookie'
+const LoginPage = () => {
+    const navigate=useNavigate(); 
     const [getAdmin,setAdmin]=useState([]);
     const [getAdminName, setAdminName] = useState("");
     const [getAdminPassword, setAdminPassword] = useState("");
-    const [getAdminNameLogin, setAdminNameLogin] = useState("");
-    const [getAdminPassLogin, setAdminPassLogin] = useState("");
+    const [getCookies,setCookies]=useCookies();
     var Admin; 
     function AdminLogin(){
         axios.post("http://localhost:8020/Admin/Login",{
             ADMIN_NAME:getAdminName,
             ADMIN_PASSWORD:getAdminPassword
-        }).then(res=>{return res.json();}).then((data)=>{setAdmin(data);})
+        }).then(res=>{
+                if(res.data.STATUS){
+                    setCookies("Admin",res.data.TOKEN);
+                    navigate("/Home");
+                }
+            ;}
+        )
     }
         return (
             <div style={{ display: "flex", justifyContent: "center", width: 100 + "%", height: 100 + "%" }}>
