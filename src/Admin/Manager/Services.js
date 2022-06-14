@@ -11,7 +11,7 @@ class Services extends React.Component{
     }
     componentDidMount() {
        fetch(
-        "http://127.0.0.1:8020/Admin/getServiceManager",{mode:"cors"}
+        "https://gxyvy04g01backend-production.up.railway.app/Admin/getServiceManager",{mode:"cors"}
        ).then((res)=>res.json()).then((data)=>{
            this.setState({
                items:data,

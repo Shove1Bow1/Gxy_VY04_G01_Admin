@@ -11,7 +11,7 @@ const LoginPage = () => {
     const [getCookies,setCookies]=useCookies();
     var Admin; 
     function AdminLogin(){
-        axios.post("http://localhost:8020/Admin/Login",{
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Admin/Login",{
             ADMIN_NAME:getAdminName,
             ADMIN_PASSWORD:getAdminPassword
         }).then(res=>{
@@ -25,7 +25,7 @@ const LoginPage = () => {
         return (
             <div style={{ display: "flex", justifyContent: "center", width: 100 + "%", height: 100 + "%" }}>
                 <form style={{ width: 40 + "%", height: 50 + "%", border: 2 + "px solid black", padding: 12 + "px", marginTop: 200 + "px" }}>
-                    <img src={Login} alt={"login"} style={{ width: 30 + "%", height: 30 + "%", marginLeft: 2.5 + "%" }} />
+                    <img src={Login} alt={"login"} style={{ width: 30 + "%", height: 30 + "%", marginLeft: 35 + "%" }} />
                     <div className="form-group" style={{ marginTop: 5 + "px",textAlign:"start" }}>
                         <label>Admin</label>
                         <input type="text" value={getAdminName} onChange={(e) => setAdminName(e.target.value)} className="form-control" placeholder="Enter Admin name" />

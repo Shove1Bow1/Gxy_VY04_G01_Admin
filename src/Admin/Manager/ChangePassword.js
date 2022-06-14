@@ -13,7 +13,7 @@ export default function ChangePassword(){
             return;
         }
         if(getCookies.Admin){
-            axios.post("http://localhost:8020/Admin/updatePassword", {
+            axios.post("https://gxyvy04g01backend-production.up.railway.app/Admin/updatePassword", {
                 ADMIN_OLD_PASSWORD: getOldPassword,
                 ADMIN_NEW_PASSWORD: getNewPassword
             }).then(res => {

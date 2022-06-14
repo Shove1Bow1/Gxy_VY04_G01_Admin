@@ -12,7 +12,7 @@ const EditService=()=>{
     useEffect(()=>{
         // const getServiceCode=async()=>{
         //     const ServiceCode=await fetchTasks();
-        axios.get(`http://localhost:8020/Admin/getService/${id}`).then(res => res).then(data => {
+        axios.get(`https://gxyvy04g01backend-production.up.railway.app/Admin/getService/${id}`).then(res => res).then(data => {
             setName(data.data[0].APP_NAME);
             setMin(data.data[0].MIN_PRICE);
             setMax(data.data[0].MAX_PRICE);
@@ -29,7 +29,7 @@ const EditService=()=>{
     }
    function onSubmit(){
         if(parseInt(getMin)<100000){
-            window.alert("Số điểm thưởng không được dưới 100000");
+            window.alert("Số tiền tối thiểu không được dưới 100000");
             return;
         }
         if(parseInt(getMin)>=parseInt(getMax)){
@@ -49,7 +49,7 @@ const EditService=()=>{
             return;
         }
         if(parseInt(getPoint)<500){
-            window.alert("Số điểm thưởng quy đổi không được lớn hơn 10000");
+            window.alert("Số điểm thưởng quy đổi không được lớn hơn 20000");
             return;
         }
         axios.post("http://localhost:8020/Admin/updateServiceManager",{
